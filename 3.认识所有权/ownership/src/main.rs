@@ -23,6 +23,15 @@ fn takes_and_gives_back(a_string: String) -> String
     a_string // 返回 a_string 并移出给调用的函数
 }
 
+fn calculate_length(s: String) -> (String, usize)
+{
+    let length = s.len();
+
+    (s, length)
+}
+
+
+
 fn main() {
     let mut x = 5;
     let y = x;
@@ -59,6 +68,10 @@ fn main() {
     let s_4 = takes_and_gives_back(s_3);
     // println!("{}", s_3);  // s_3已经被转移，所以是无效的
     println!("{}", s_4);
+
+    let (s_5, len) = calculate_length(s_4);
+    println!("s_5={}, len={}", s_5, len);
+    
    
 
 }
