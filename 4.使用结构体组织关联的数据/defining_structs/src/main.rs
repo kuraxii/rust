@@ -6,6 +6,9 @@ struct User {
     sign_in_count: u64,
 }
 
+// 结构体元组
+struct Point(u32, i32, String);
+
 
 // 结构体初始化
 fn bulid_user(username: String, email: String) -> User {
@@ -58,6 +61,13 @@ fn main() {
         user2.active, user2.username, user2.email, user2.sign_in_count
     );
 
+    
+
+    let point = Point(1, 2 ,String::from("str"));
+    println!("{}, {}, {}", point.0, point.1,point.2);
+
+    let point1: Point = point;
+    println!("{}, {}, {}", point1.0, point1.1, point1.2);
     
     
     
