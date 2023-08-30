@@ -11,11 +11,7 @@ impl Rectangles {  // 每个结构体都允许拥有多个 impl 块, 最终会�
 
     fn can_hold(&self, other: &Rectangles) -> bool // 更多参数的方法
     {
-        if self.height > other.height && self.width > other.width {
-            true
-        } else {
-            false
-        }
+        self.height > other.height && self.width > other.width  
     }
 
     // 关联
