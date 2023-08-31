@@ -1,3 +1,12 @@
+use std::{sync::atomic, num::IntErrorKind};
+
+// 使用枚举来存储多种类型
+enum SPreadsheetCell
+{
+    Int(i32),
+    Float(f64),
+    Tetx(String)
+}
 
 fn main() {
     // 新建一个空的vector
@@ -32,9 +41,34 @@ fn main() {
 
     // 遍历
     let mut _v = vec![1, 3, 4, 5];
-    for i in &mut _v
+    for i in &_v
+    {
+        println!("{}", i);
+    }
+    
+    // 使用可变引用
+    for i in &mut _v    
     {
         *i += 10;
         println!("{}", i);
     }
-}
+
+    let row = vec![
+        SPreadsheetCell::Int(3),
+        SPreadsheetCell::Float(1.1),
+        SPreadsheetCell::Tetx(String::from("123"))
+        ];
+
+        for i in &row
+        {
+            match i {
+                SPreadsheetCell::Int(x) => println!("{}", x),
+                SPreadsheetCell::Float(x) => println!("{}", x),
+                SPreadsheetCell::Tetx(x) => println!("{}", x)
+            }
+        }
+
+
+
+
+} // 当 vector 被丢弃时，所有其内容也会被丢弃，这意味着这里它包含的整数将被清理。借用检查器确保了任何 vector 中内容的引用仅在 vector 本身有效时才可用。
